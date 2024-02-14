@@ -30,7 +30,6 @@ class _AddScreenState extends State<AddScreen> {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       backgroundColor: Colors.yellow[100],
       appBar: AppBar(
@@ -82,8 +81,8 @@ class _AddScreenState extends State<AddScreen> {
                           description: descController.text,
                         );
                         await hiveDatabase.addTodo(todo);
-                        if (context.mounted) Navigator.pop(context);
                       }
+                      if (context.mounted) Navigator.pop(context);
                     },
                     child: Text(
                       widget.index != null ? 'Edit' : 'Add',

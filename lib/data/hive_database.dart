@@ -26,7 +26,7 @@ class HiveDatabase {
 
   Future<void> updateTodo(int index, Todo todo) async {
     final box = await Hive.openBox<Todo>(boxName);
-    await box.put(index, todo);
+    await box.putAt(index, todo);
   }
 
   Future<void> updateStatus(int index, Todo todo) async {

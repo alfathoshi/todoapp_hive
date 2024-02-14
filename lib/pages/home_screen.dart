@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:handson/data/hive_database.dart';
 import 'package:handson/model/todo.dart';
+import 'package:handson/pages/add_screen.dart';
 import 'package:handson/widgets/item_todo.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -100,8 +101,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                         hiveDatabase.deleteTodo(index);
                                       });
                                     },
-                                    onEdit: () {
-                                      Navigator.pushNamed(context, '/add')
+                                    onEdit: () async {
+                                      _todo = Todo(
+                                        title: todos[index].title,
+                                        description: todos[index].description,
+                                        isDone: todos[index].isDone,
+                                      );
+                                      await Navigator.pushNamed(context, '/add',
+                                              arguments: index)
                                           .then((value) {
                                         setState(() {});
                                       });
