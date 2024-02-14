@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "786839365466",
+    "project_id": "todoapp-cc71c",
+    "storage_bucket": "todoapp-cc71c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:786839365466:android:764958a240c69cac7c7563",
+        "android_client_info": {
+          "package_name": "com.gdscbootcamp.firetodo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqcQgCu20PIwdItU20ucByxqRLXWnqets"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyDFSDGv_K-exRQFMenJrv2EvrDM7JMXZ0g</string>
+	<key>GCM_SENDER_ID</key>
+	<string>786839365466</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.gdscbootcamp.firetodo</string>
+	<key>PROJECT_ID</key>
+	<string>todoapp-cc71c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>todoapp-cc71c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:786839365466:ios:1ae3801b2b89126d7c7563</string>
+</dict>
+</plist>
