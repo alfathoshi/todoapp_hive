@@ -12,6 +12,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   Todo? _todo;
+  final titleController = TextEditingController();
+  final descController = TextEditingController();
   final HiveDatabase hiveDatabase = HiveDatabase();
 
   @override
@@ -19,6 +21,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: Colors.yellow[100],
       appBar: AppBar(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+        shadowColor: Colors.black,
+        elevation: 2,
         backgroundColor: Colors.yellow,
         title: const Text(
           'To Do App',
@@ -41,11 +48,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   .toList()
                   .length;
               return snapshot.data!.isEmpty
-                  ? const Center(
+                  ? Center(
                       child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('Empty'),
+                        Image.asset(
+                          'assets/images/emptyBox.png',
+                          scale: 0.7,
+                        ),
+                        const Text('Empty'),
                       ],
                     ))
                   : Column(
@@ -66,29 +77,36 @@ class _HomeScreenState extends State<HomeScreen> {
                             itemCount: snapshot.data?.length,
                             itemBuilder: (context, index) {
                               final todos = snapshot.data!;
-                              return ItemTodo(
-                                  check: todos[index].isDone,
-                                  todo: todos[index],
-                                  onCheck: (value) async {
-                                    setState(() {
-                                      todos[index].isDone =
-                                          !todos[index].isDone;
-                                    });
-                                    
-                                    await hiveDatabase.updateStatus(
-                                        index, _todo!);
-                                  },
-                                  onDelete: () {
-                                    setState(() {
-                                      hiveDatabase.deleteTodo(index);
-                                    });
-                                  },
-                                  onEdit: () {
-                                    Navigator.pushNamed(context, '/add')
-                                        .then((value) {
-                                      setState(() {});
-                                    });
-                                  });
+                              return Padding(
+                                padding: const EdgeInsets.only(bottom: 8),
+                                child: ItemTodo(
+                                    check: todos[index].isDone,
+                                    todo: todos[index],
+                                    onCheck: (value) async {
+                                      _todo = Todo(
+                                        title: todos[index].title,
+                                        description: todos[index].description,
+                                        isDone: todos[index].isDone,
+                                      );
+                                      setState(() {
+                                        todos[index].isDone =
+                                            !todos[index].isDone;
+                                      });
+                                      await hiveDatabase.updateStatus(
+                                          index, _todo!);
+                                    },
+                                    onDelete: () {
+                                      setState(() {
+                                        hiveDatabase.deleteTodo(index);
+                                      });
+                                    },
+                                    onEdit: () {
+                                      Navigator.pushNamed(context, '/add')
+                                          .then((value) {
+                                        setState(() {});
+                                      });
+                                    }),
+                              );
                             },
                           ),
                         )

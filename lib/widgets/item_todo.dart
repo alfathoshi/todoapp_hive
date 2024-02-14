@@ -24,8 +24,18 @@ class _ItemTodoState extends State<ItemTodo> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(
+          24,
+        ),
+      ),
       child: ListTile(
-        tileColor: Colors.yellow[200],
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(
+            24,
+          ),
+        ),
+        tileColor: widget.todo.isDone ? Colors.black26 : Colors.yellow[200],
         leading: Checkbox(
           activeColor: Colors.black,
           value: widget.check,
@@ -34,15 +44,17 @@ class _ItemTodoState extends State<ItemTodo> {
         title: Text(
           widget.todo.title,
           style: TextStyle(
-            decoration:
-                widget.todo.isDone ? TextDecoration.lineThrough : TextDecoration.none,
+            decoration: widget.todo.isDone
+                ? TextDecoration.lineThrough
+                : TextDecoration.none,
           ),
         ),
         subtitle: Text(
           widget.todo.description,
           style: TextStyle(
-            decoration:
-                widget.todo.isDone ? TextDecoration.lineThrough : TextDecoration.none,
+            decoration: widget.todo.isDone
+                ? TextDecoration.lineThrough
+                : TextDecoration.none,
           ),
         ),
         trailing: Row(

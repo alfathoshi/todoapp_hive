@@ -30,6 +30,7 @@ class _AddScreenState extends State<AddScreen> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       backgroundColor: Colors.yellow[100],
       appBar: AppBar(
@@ -52,7 +53,7 @@ class _AddScreenState extends State<AddScreen> {
                     controller: titleController
                       ..text = _todo != null ? _todo!.title : '',
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                   TodoTextfield(
